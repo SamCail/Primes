@@ -8,4 +8,5 @@ Source: [https://primes.utm.edu/lists/small/millions/](https://primes.utm.edu/li
 curl -OL https://www.utm.edu/~caldwell/primes/millions/primes[1-50].zip
 find -maxdepth 1 -type f -name 'primes*.zip' -exec unzip {} \;
 for each in primes*.txt ; do awk 'NR>2 { for (i=1; i<=NF; i+=1) if ($i ~ /[0-9]+/ ) print($i) }' $each ; done | sort -h > primes.txt
+sha256sum -c SHA256SUM.txt
 ```
